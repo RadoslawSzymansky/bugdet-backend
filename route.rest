@@ -1,0 +1,18 @@
+GET http://localhost:8000/users
+
+###
+GET http://localhost:8000/users/60edf95ee2c54f25899f330a
+
+###
+
+POST http://localhost:8000/users
+Content-Type: application/json
+
+{
+  "name": "Nowy",
+  "password": "Haslo",
+  "email": "user@gmail.com"
+}
+
+###
+DELETE http://localhost:8000/users/60edf95ee2c54f25899f330a
