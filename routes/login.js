@@ -1,4 +1,5 @@
 const express = require('express');
+const jwt = require('jsonwebtoken');
 const router = express.Router();
 const User = require('../models/user');
 
@@ -19,8 +20,9 @@ router.post('/', async (req, res) => {
 
     if (user) {
       // create jsonwebtoken and add it to tokens array
+      const token = jwt.sign({ email }, process.env.JWT_KEY);
 
-      user.tokens.push('token');
+      user.tokens.push(token);
       await user.save();
 
       return res.status(200).send(user);
